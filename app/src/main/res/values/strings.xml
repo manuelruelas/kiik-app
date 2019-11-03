@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">kiik</string>
+    <string name="test_work">Component Works</string>
+
+    <string name="lorem_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dignissim est justo, non pulvinar neque eleifend ac. Aliquam blandit pellentesque imperdiet</string>
+    <string name="label_register">Registrarme</string>
+    <string name="label_login">Iniciar sesion</string>
+    <string name="label_forgot">OLVIDASTE TU CONTRASEÑA?</string>
+    <string name="content_logo">Logo de kiik</string>
+    <string name="label_signup">CREAR CUENTA</string>
+    <string name="button_login">INICIAR SESION</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Contraseña</string>
+    <string name="label_title">Titulo</string>
+
 </resources>
