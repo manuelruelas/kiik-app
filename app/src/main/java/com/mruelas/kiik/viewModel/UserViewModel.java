@@ -12,14 +12,20 @@ import java.util.List;
 public class UserViewModel extends ViewModel {
     private UserRepository repository;
     private MutableLiveData<List<User>> allUsers;
+    private MutableLiveData<User> mUser;
 
     public UserViewModel(){
         repository = new UserRepository();
         allUsers = repository.getAllUsers();
+
     }
 
-    LiveData<List<User>> getAllUsers(){
+    private LiveData<List<User>> getAllUsers() {
         return allUsers;
     }
 
+    public LiveData<User> createUser(User user) {
+        mUser = repository.createUser(user);
+        return mUser;
+    }
 }

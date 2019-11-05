@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.mruelas.kiik.R;
 import com.mruelas.kiik.view.ui.LoginActivity;
+import com.mruelas.kiik.view.ui.SignupActivity;
 
 public class WalktroughActivity extends AppCompatActivity {
 
@@ -36,6 +37,12 @@ public class WalktroughActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
 
+    }
+
+    public void goToSignUp(View view) {
+        Intent intent = new Intent(WalktroughActivity.this, SignupActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

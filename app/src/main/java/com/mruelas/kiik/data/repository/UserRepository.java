@@ -3,6 +3,7 @@ package com.mruelas.kiik.data.repository;
 import androidx.lifecycle.MutableLiveData;
 
 import com.mruelas.kiik.data.model.User;
+import com.mruelas.kiik.data.remote.ApiResponse;
 import com.mruelas.kiik.data.remote.RetrofitClient;
 import com.mruelas.kiik.data.remote.UserService;
 
@@ -13,6 +14,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UserRepository {
+    public static final String TAG = "UserRepository";
     private static UserRepository userRepository;
     private UserService userService;
 
@@ -44,5 +46,30 @@ public class UserRepository {
             }
         });
         return usersData;
+    }
+
+    public MutableLiveData<User> createUser(User user) {
+        final MutableLiveData<User> userData = new MutableLiveData<User>();
+
+        userService.createUser(user).enqueue(new Callback<ApiResponse<User>>() {
+            @Override
+            public void onResponse(Call<ApiResponse<User>> call, Response<ApiResponse<User>> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        userData.setValue(response.body().getData());
+                    } catch (NullPointerException e) {
+                        userData.setValue(null);
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse<User>> call, Throwable t) {
+                System.err.println(t.getMessage());
+                userData.setValue(null);
+            }
+        });
+        return userData;
     }
 }
